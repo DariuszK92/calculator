@@ -71,10 +71,25 @@
     box-shadow: 0 5px rgb(44, 43, 43)
   }
 
+  .green{
+    background-color: rgb(6, 99, 26);
+    box-shadow: 0 5px rgb(18, 133, 8);
+  }
+
   /*SCREEN STYLING*/
-  .para{
+  .para, #symbol{
     text-align: right;
-    margin-top: 10px;
-    margin-right: 12px;
+    margin-top: 3px;
+    margin-right: 8px;
     font-size: 22px;
+  }
+
+
+  #line{
+    display: flex;
+    justify-content: flex-end;
+  }
+  p#result{
+    font-size: 30px;
+ 
   }
