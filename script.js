@@ -48,7 +48,7 @@ clear.addEventListener('click',()=>clearAll());
 //Special symbols invocation
 plus.addEventListener('click',()=>typeSymbol('+'));
 minus.addEventListener('click',()=>typeSymbol('-'));
-multiplication.addEventListener('click', ()=>typeSymbol('x'));
+multiplication.addEventListener('click', ()=>typeSymbol('*'));
 division.addEventListener('click',()=>typeSymbol('/'));
 modulus.addEventListener('click',()=>typeSymbol('%'));
 dot.addEventListener('click',()=>addDot());
@@ -58,7 +58,23 @@ change.addEventListener('click',()=>changeSymbol());
 
 //Functions
 function typeNumber(a){
-    if(result.innerText.length===0 && symbol.innerText.length===0){
+    if(calculations1.innerText==="0" && a==="0" ||
+    calculations2.innerText==="0" && a==="0" ){
+        return
+       }
+    else if(calculations1.innerText==='NaN' || calculations2.innerText==='NaN'
+    || calculations1.innerText==='Infinity' || calculations2.innerText==='Infinity'){
+        return
+    }
+    else if(calculations1.innerText.length>=25 && symbol.innerText.length===0){
+        const a = +calculations1.innerText;
+        calculations1.innerText= a.toExponential()
+    }
+    else if(calculations2.innerText.length>=25){
+        const a = +calculations2.innerText;
+        calculations2.innerText= a.toExponential()
+    }
+    else if(result.innerText.length===0 && symbol.innerText.length===0){
         calculations1.innerText = calculations1.innerText + a;
     }
     else if(symbol.innerText.length!==0 && result.innerText.length===0){
@@ -71,9 +87,34 @@ function typeNumber(a){
 
 
 function typeSymbol(a){
-    if(calculations1.innerText.length!==0 && calculations2.innerText.length===0 &&
+   if(calculations1.innerText.length!==0 && calculations2.innerText.length===0 &&
      symbol.innerText===""){
         symbol.innerText = a;
+    }
+    else if(calculations2.innerText.length!==0 && result.innerText.length===0 && symbol.innerText==="+"){
+        calculations1.innerText= +calculations1.innerText + +calculations2.innerText;
+        cleaning();
+        symbol.innerText=a;
+    }
+    else if(calculations2.innerText.length!==0 && result.innerText.length===0 && symbol.innerText==="-"){
+        calculations1.innerText= +calculations1.innerText - +calculations2.innerText;
+        cleaning();
+        symbol.innerText=a;
+    }
+    else if(calculations2.innerText.length!==0 && result.innerText.length===0 && symbol.innerText==="*"){
+        calculations1.innerText= +calculations1.innerText * +calculations2.innerText;
+        cleaning();
+        symbol.innerText=a;
+    }
+    else if(calculations2.innerText.length!==0 && result.innerText.length===0 && symbol.innerText==="%"){
+        calculations1.innerText= +calculations1.innerText % +calculations2.innerText;
+        cleaning();
+        symbol.innerText=a;
+    }
+    else if(calculations2.innerText.length!==0 && result.innerText.length===0 && symbol.innerText==="/"){
+        calculations1.innerText= +calculations1.innerText / +calculations2.innerText;
+        cleaning();
+        symbol.innerText=a;
     }
     else if(result.innerText.length!==0){
         calculations1.innerText=result.innerText;
@@ -84,6 +125,11 @@ function typeSymbol(a){
     else{
         return;
     }
+}
+
+function cleaning(a){
+    calculations2.innerText="";
+    result.innerText="";
 }
 
 function backward(){
@@ -136,13 +182,16 @@ function getResult(){
     if(calculations2.innerText.length===0){
         return;
     }
+    else if(symbol.innerText==="/" && calculations2.innerText ==="0"){
+        alert("You can't divide by 0!")
+    }
     else if(symbol.innerText==="+"){
         result.innerText = +calculations1.innerText + +calculations2.innerText;
     }
     else if(symbol.innerText==="-"){
         result.innerText = +calculations1.innerText - +calculations2.innerText;
     }
-    else if(symbol.innerText==="x"){
+    else if(symbol.innerText==="*"){
         result.innerText = +calculations1.innerText * +calculations2.innerText;
     }
     else if(symbol.innerText==="/"){
@@ -178,4 +227,17 @@ function changeSymbol(){
     else{
         return;
     }
+}
+
+window.addEventListener('keydown', handleKeyboardInput)
+function handleKeyboardInput(e) {
+    if (e.key >= 0 && e.key <= 9) typeNumber(e.key)
+    if (e.key === '.') addDot()
+    if (e.key === '+' || e.key ==='%' || e.key === '-' || e.key === '*' || e.key === '/') typeSymbol(e.key)
+    if (e.key === 'Backspace') backward()
+    if (e.key === 'Enter' || e.key === "=") getResult();
+}
+
+function add(value1,value1){
+    return value1+value2;
 }

@@ -10,13 +10,26 @@
 <body>
 
   <div id="background">
-    <div id="Calculator">
-      <div id="screen">
-        <p id="calc1" class="para"></p>
-        <div id="line">
-          <p id="symbol"></p>
-          <p id="calc2" class="para"></p></div>
-        <p id="result" class="para"></p>
+      <div id="Calculator">
+        <div id="first">
+          <div id="nav"> 
+            <div id="mark">KALK-POL</div>
+            <div id="panel">
+              <div id="technology">SOLAR   ENERGY</div>
+              <div id="solar">
+                <div class="sol"></div>
+                <div class="sol"></div>
+                <div class="sol"></div>
+              </div>
+          </div>
+          </div>
+          <div id="screen">
+            <p id="calc1" class="para"></p>
+            <div id="line">
+              <p id="symbol"></p>
+              <p id="calc2" class="para"></p></div>
+            <p id="result" class="para"></p>
+          </div>
       </div>
       <div id="buttons">
         <button id="seven" class="button">7</button>
@@ -32,7 +45,7 @@
         <button id="one" class="button">1</button>
         <button id="two" class="button">2</button>
         <button id="three" class="button">3</button>
-        <button id="multiplication" class="button black">x</button>
+        <button id="multiplication" class="button black">*</button>
         <button id="division" class="button black">/</button>
         <button id="dot" class="button">.</button>
         <button id="zero" class="button">0</button>
@@ -44,6 +57,14 @@
       </div>
     </div>
   </div>
+
+  <div id="footer">
+    <footer>Copyright © <script>document.write( new Date().getUTCFullYear() );</script> Dariusz Kozlowski </footer>
+    <a href="https://github.com/DariuszK92" target="_blank">
+        <img id="github" src="https://cdn-icons-png.flaticon.com/512/25/25231.png">
+    </a>
+</div>
+
   <script src="script.js"></script>
 </body>
 </html>

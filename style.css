@@ -15,15 +15,15 @@
     flex-direction:column;
     align-items:center;
     background-color:#676a6e;
-    height:500px;
+    height:540px;
     width:400px;
     border:2px solid black;
     border-radius:12px;
   }
   
   #screen{
-    margin-top:5%;
-    margin-bottom:5%;
+    margin-top:4%;
+    margin-bottom:4%;
     background-color: #b1f7fc;
     height:100px;
     width:90%;
@@ -93,3 +93,71 @@
     font-size: 30px;
  
   }
+
+
+  #first{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    box-shadow: 0 1px rgb(31, 30, 30);
+    margin-top:12px;
+  }
+  #nav{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    color: whitesmoke;
+  }
+  #solar{
+    height: 25px;
+    border-radius: 5px;
+    width: 100px;
+    background-color: rgb(63, 35, 37);
+    display: flex;
+    border: 1px solid rgb(73, 39, 39);
+  }
+
+  #technology{
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .sol:nth-of-type(1), .sol:nth-of-type(2){
+    height: 100%;
+    border-right: rgb(121, 109, 109) 0.2px solid;
+    width: 33%;
+  }
+  
+#mark{
+  font-weight: 900;
+  font-size: 20px;
+  align-self: center;
+}
+
+/*FOOTER STYLING*/
+#footer{
+  height:40px;
+ background-color: rgb(182, 166, 146);
+  font-size: 22px;
+ width:100%;
+  margin:0;
+  position:fixed;
+  z-index: 2;
+  bottom:0; 
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+#github{
+  height:20px;
+  margin-left:10px;
+  align-self: center;
+  margin-top: 5px;
+
+}
+#github:hover{
+   opacity: 0.40;
+ }
